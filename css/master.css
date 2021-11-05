@@ -1,0 +1,322 @@
+:root {
+    --turn-color: blue;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+   
+    
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+div.starting {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+div.starting .start {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 5px auto;
+    border-radius: 15px;
+    background-color: #191919;
+    color: #fff;
+    border:none;
+    cursor: pointer;
+}
+div.starting h1 {
+    text-align: center;
+    font-size: 50px;
+    color: red;
+}
+div.starting h1:first-child {
+    color: #39BCD4
+}
+div.starting h1 span:nth-child(2) {
+    color: #3989D4
+}
+div.starting h1 span:last-child {
+    color: #929292;
+}
+div.statistic {
+    width: 450px;
+    height: 150px;
+    margin: 5px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    display: none;
+}
+div.statistic span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bold;
+    transition: 2s;
+}
+div.statistic span:first-child {
+    color: #39BCD4;
+}
+div.statistic span:nth-child(2) {
+    color: #3889D4;
+}
+div.statistic span:last-child {
+    color: #A4B5B8;
+}
+div.statistic span:last-child i {
+    font-size: 30px;
+}
+span.o {
+    width: 30px;
+    height: 30px;
+    border: 5px solid #39BCD4;
+    border-radius: 50%;
+    
+}
+span.x {
+    width: 5px;
+    height: 35px;
+    background-color: #3989D4;
+    border-radius: 25px;
+    position: relative;
+    transform: rotate(135deg);
+}
+span.x::before {
+    content: "";
+    width: 5px;
+    height: 35px;
+    background-color: #3989D4;
+    border-radius: 25px;
+    position: absolute;
+    transform: rotate(-90deg);
+ 
+}
+div.table {
+    width: 450px;
+    height: 450px;
+    /* border: 1px solid #000; */
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transition: 0.6s;
+    display: none;
+    
+}
+
+div.table span {
+    width: 100%;
+    height: 150px;
+    border-left: 3px solid #E1E1E1;
+    border-bottom: 3px solid #E1E1E1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+span.case-one , span.case-four ,span.case-seven {
+    border-left-width: 0px !important;
+}
+span.case-seven , span.case-eight ,span.case-nine {
+    border-bottom-width: 0px !important;
+}
+div.circle {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 0 solid #38BCD4;
+    animation-name: draw;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    
+}
+@keyframes draw {
+    from {
+        width: 0;
+        height: 0;
+        border-width: 0;
+    }
+    to {
+        width: 80px;
+        height: 80px;
+        border-width: 10px;
+    }
+}
+    @keyframes draw-one {
+    from {
+        width: 0;
+        height: 0;
+        border-width: 0;
+    }
+    to {
+        width: 150px;
+        height: 150px;
+        border-width: 15px;
+    }
+}
+div.cross {
+    width: 15px;
+    height: 100px;
+    background-color: #3989D4;
+    border-radius: 25px;
+    animation-name: cross;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    position: relative;
+    transform: rotate(135deg);
+}
+div.cross::before {
+    content: "";
+    width: 15px;
+    height: 100px;
+    background-color: #3989D4;
+    border-radius: 25px;
+    position: absolute;
+    transform: rotate(-90deg);
+    z-index: -1;
+    animation-name: cro;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+.alert {
+    
+    color: red;
+    text-align: center;
+    transition: 2s;
+    visibility: hidden;
+    font-size: 50px;
+    animation: vis 2s backwards;
+}
+div.turn {
+    width: 100px;
+    height: 50px;
+    margin: 15px auto;
+    border: 1px solid  #eee;
+    border-radius: 25px;
+    display: none;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+    position: relative;
+    margin: 15px auto;
+}
+
+div.turn .x {
+    width: 5px;
+    height: 25px;
+    margin-left: 10px;
+}
+div.turn .x::before{
+    width: 5px;
+    height: 25px;
+}
+div.turn .o {
+    width: 25px;
+    height: 25px;
+}
+
+
+
+
+
+
+@keyframes cross {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(135deg);
+    }
+}
+@keyframes cro {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-90deg);
+    }
+}
+@keyframes vis {
+    from {
+        font-size: 25px;
+    }
+    to {
+        font-size: 50px;
+    }
+}
+div.win {
+    width: 350px;
+    height: 450px;
+    /* border: 1px solid #000; */
+    margin: 15px auto;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+
+}
+div.win span.o{
+    width: 150px;
+    height: 150px;
+    border: 15px solid #39BCD4;
+    animation: draw-one 1s backwards;
+    display: none;
+  
+}
+
+div.win span.x {
+    width: 15px;
+    height: 150px;
+    display: none;
+    animation: cross 1s;
+}
+div.win span.x::before {
+    width: 15px;
+    height: 150px;
+  
+}
+div.win p {
+    font-size: 50px;
+    font-weight: bold;
+    color: #39BCD4;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+div.win span.draw i {
+    font-size: 150px;
+    color: #A4B5B8;
+}
+div.win button{
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid #38BCD4;
+    background-color: transparent;
+}
+div.win button:hover{
+    background-color: #eee;
+}
+
+
+@media (max-width: 450px) {
+    div.statistic {
+        width: 300px !important;
+        height: 150px;
+
+    }
+    div.table {
+        width: 300px !important;
+        height: 450px;
+  
+    }
+}

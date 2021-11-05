@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/master.css">
+    <title>TicTacToe</title>
+</head>
+
+<body>
+  
+    <div class="starting">
+        <h1><span></span>Tic</span> <span>Tac</span> <span>Toe</span></h1>
+        <button class="start">Start Game</button>
+     
+
+
+    </div>
+    <div class="statistic">
+        
+       <span class="circle-win">
+           <span class="o"></span>
+           <p>0 wins</p>
+       </span>
+       <span class="cross-win">
+        <span class="x"></span>
+           <p>0 wins</p>
+           
+       </span>
+       <span class="draw">
+        <i class="fas fa-balance-scale"></i>
+           <p>0 draws</p>
+       </span>
+    </div>
+   <div class="win">
+    <span class="o"></span>
+    <span class="x"></span>
+    <span class="draw"><i class="fas fa-balance-scale"></i></span>
+    <p>Winner</p>
+    <button id="again">Play Again</button>
+   </div>
+   <div class="table">
+        <span class="case-one"></span>
+        <span class="case-two"></span>
+        <span class="case-three"></span>
+        <span class="case-four"></span>
+        <span class="case-five"></span>
+        <span class="case-six"></span>
+        <span class="case-seven"></span>
+        <span class="case-eight"></span>
+        <span class="case-nine"></span>
+   </div> 
+   <!-- <p class="alert">Place Reserved</p> -->
+   <div class="turn">
+       <span class="x"></span>
+       <span class="o"></span>
+   </div>
+   <audio src="Winner Sound Effect.mp3" id="winner">
+    <audio src="Round Draw.mp3" id="round-draw">
+       
+   </audio>
+   <script src="js/app.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+   <script>
+    function addDarkmodeWidget() {
+      new Darkmode().showWidget();
+      
+    }
+    function changeColor() {
+        document.querySelector('h1').style.color = '#ffffff';
+    }
+    window.addEventListener('load', addDarkmodeWidget , changeColor);
+    
+  </script>
+</body>
+</html>
